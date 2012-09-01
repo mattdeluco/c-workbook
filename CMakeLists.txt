@@ -4,4 +4,4 @@ project(c-workbook)
 
 add_definitions(-std=c99)
 
-add_executable(cmake_bootstrap cmake_bootstrap.c)
+add_executable(test_linked_list test_linked_list.c linked_list.c)
