@@ -5,12 +5,12 @@ typedef struct linked_node l_node;
 
 
 /***
- * linked_node_create: Allocate a new linked node
- * new_node: a node pointer at which to allocate a new node
+ * linked_node_create: Allocate a new linked node with a copy of element
  * next_node: the next node to point to
- * element: the data the node contains
+ * element: the data to copy into the node
+ * size: the size of element in bytes
  */
-l_node* linked_node_create(l_node *next_node, void *element);
+l_node* linked_node_create(l_node *next_node, void *element, size_t size);
 
 
 /***
@@ -21,8 +21,8 @@ void linked_node_destroy(l_node* node);
 
 
 /***
- * linked_node_next: sets node to the next node
- * node: the node to be set
+ * linked_node_next: returns the given node's next node
+ * node: the node whose next node is desired
  */
 l_node* linked_node_next(l_node *node);
 
@@ -37,16 +37,17 @@ int linked_node_hasNext(l_node *node);
 /**
  * linked_node_element: returns the element in node
  * node: the node containing the element
- * element: a pointer to an element pointer
  */
 void* linked_node_element(l_node *node);
 
 
 /***
- * linked_node_setElement: sets the element in the given node
+ * linked_node_setElement: copies an element into node, destroying the previous
+ *      data held in node.
  * node: the node whose element is to be set
- * element: the element to be set in the node
+ * element: the element whose data is to be copied into node
+ * size: the size of element in bytes
  */
-void linked_node_setElement(l_node *node, void *element);
+void linked_node_setElement(l_node *node, void *element, size_t size);
 
 #endif // LINKED_NODE_H

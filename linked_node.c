@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 
 #include "linked_node.h"
 
@@ -10,22 +11,24 @@ struct linked_node
 };
 
 
-l_node* linked_node_create(l_node *next_node, void *element)
+l_node* linked_node_create(l_node *next_node, void *element, size_t size)
 {
     l_node *node = malloc(sizeof(l_node));
 
     if (!node)
         return NULL;
 
-    node->next = next_node;
-    node->element = element;
+    linked_node_setElement(node, element, size);
 
+    node->next = next_node;
+    
     return node;
 }
 
 
 void linked_node_destroy(l_node* node)
 {
+    free(node->element);
     free(node);
 }
 
@@ -52,7 +55,10 @@ void* linked_node_element(l_node *node)
 }
 
 
-void linked_node_setElement(l_node *node, void *element)
+void linked_node_setElement(l_node *node, void *new_element, size_t size)
 {
-    node->element = element;
+    free(node->element);
+
+    node->element = malloc(size);
+    memcpy(node->element, new_element, size);
 }
