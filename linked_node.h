@@ -31,7 +31,7 @@ l_node* linked_node_next(l_node *node);
  * linked_node_hasnext: indicates if a node follows this node
  * node: the node being checked for a following node
  */
-int linked_node_hasnext(l_node *node);
+int linked_node_hasNext(l_node *node);
 
 
 /**

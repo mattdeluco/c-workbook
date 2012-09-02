@@ -40,7 +40,7 @@ l_node* linked_node_next(l_node *node)
 }
 
 
-int linked_node_hasnext(l_node *node)
+int linked_node_hasNext(l_node *node)
 {
     return node->next ? 1 : 0;
 }
