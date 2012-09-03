@@ -57,7 +57,7 @@ void* linked_node_element(l_node *node)
 
 void linked_node_setElement(l_node *node, void *new_element, size_t size)
 {
-    free(node->element);
+    if (node->element) free(node->element);
 
     node->element = malloc(size);
     memcpy(node->element, new_element, size);
