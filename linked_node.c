@@ -35,7 +35,7 @@ void linked_node_destroy(l_node* node)
 
 l_node* linked_node_next(l_node *node)
 {
-    if (linked_node_hasnext(node)) {
+    if (linked_node_hasNext(node)) {
         return node->next;
     }
 
