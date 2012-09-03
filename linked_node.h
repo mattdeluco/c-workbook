@@ -5,12 +5,12 @@ typedef struct linked_node l_node;
 
 
 /***
- * linked_node_create: Allocate a new linked node with a copy of element
- * next_node: the next node to point to
+ * linked_node_insert: Allocate a new linked node with a copy of element
+ * head: the node to be appended to the new node
  * element: the data to copy into the node
  * size: the size of element in bytes
  */
-l_node* linked_node_create(l_node *next_node, void *element, size_t size);
+l_node* linked_node_insert(l_node *head, void *element, size_t size);
 
 
 /***

@@ -11,16 +11,16 @@ struct linked_node
 };
 
 
-l_node* linked_node_create(l_node *next_node, void *element, size_t size)
+l_node* linked_node_insert(l_node *head, void *element, size_t size)
 {
-    l_node *node = malloc(sizeof(l_node));
+    l_node *node = calloc(1, sizeof(l_node));
 
     if (!node)
         return NULL;
 
     linked_node_setElement(node, element, size);
 
-    node->next = next_node;
+    node->next = head;
     
     return node;
 }
