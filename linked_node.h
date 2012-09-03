@@ -14,10 +14,10 @@ l_node* linked_node_create(l_node *next_node, void *element, size_t size);
 
 
 /***
- * linked_node_destroy: Deallocate an existing linked node
+ * linked_node_destroy: Deallocate an existing linked node and return next node
  * node: a node pointer at which there is a node to deallocate
  */
-void linked_node_destroy(l_node* node);
+void* linked_node_destroy(l_node* node);
 
 
 /***

@@ -26,10 +26,12 @@ l_node* linked_node_create(l_node *next_node, void *element, size_t size)
 }
 
 
-void linked_node_destroy(l_node* node)
+void* linked_node_destroy(l_node* node)
 {
+    l_node *next = linked_node_next(node);
     free(node->element);
     free(node);
+    return next;
 }
 
 
