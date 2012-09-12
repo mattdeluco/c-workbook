@@ -21,12 +21,11 @@ l_stack* stack_create()
 }
 
 
-/* F'n pointer to destroy element? */
 void stack_destroy(l_stack *stack)
 {
     l_node *node;
 
-    while (stack->size--) {
+    while (stack->top) {
         node = stack_pop(stack);
         linked_node_destroy(node);
     }
